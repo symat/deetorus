@@ -1,2 +1,0 @@
-# DeeTorus
-Created with CodeSandbox
