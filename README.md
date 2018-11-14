@@ -24,7 +24,8 @@ let's use some metaphysical data he would be also interested today.
 - I never used any online IDE before, so why not :) - https://codesandbox.io/s/x2npwk5mlq
 - But let's keep the code version controlled: https://github.com/symat/DeeTorus
 - I always wanted to learn modern front-end frameworks, so let's try React with ES
-- This stuff will need some more advanced state modificaiton for applying projections, Redux seems to manage that just well
+- This stuff will need some more advanced state modificaiton for applying projections, Redux
+  seems to manage that just well
 - We will also need some visualization libraries.
 
 # Team
@@ -33,4 +34,5 @@ let's use some metaphysical data he would be also interested today.
 
 # Fun
 
-it is just a hobby project... you can copy/fork/use/change/download/refer to it freely without consuling me - but of course, I am happy to get any feedback
+it is just a hobby project... you can copy/fork/use/change/download/refer to it freely without
+consuling me - but of course, I am happy to get any feedback

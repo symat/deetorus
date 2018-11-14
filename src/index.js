@@ -1,16 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { createLogger } from "redux-logger";
+import { Provider } from "react-redux";
+import { allReducers } from "./reducers";
+import App from "./components/app/app";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./styles.css";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
-}
-
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+const logger = createLogger();
+
+const store = createStore(allReducers, applyMiddleware(thunk, logger));
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
+);
