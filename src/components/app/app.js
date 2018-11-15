@@ -10,7 +10,7 @@ class App extends React.Component {
       <div className="dt-app">
         <Navbar dispatch={dispatch} selectedMenu={selectedMenu} />
 
-        <div className="App">
+        <div className="dt-main-screen">
           <h1>Hello Guys!</h1>
           <h2>
             Check out the cool menu we have... it propagates the active menu to
