@@ -1,9 +1,9 @@
-import { CHANGE_NAVBAR_MENU } from "./navbar-actions";
+import { CHANGE_NAVBAR_MENU, CHANGE_STATUS_MESSAGE } from "./navbar-actions";
 
 const initial = {
   isWorking: false,
-  workingMessage: "",
-  selectedMenu: "aa"
+  statusMessage: "",
+  selectedMenu: "new"
 };
 
 export function navbar(state = initial, action) {
@@ -11,6 +11,11 @@ export function navbar(state = initial, action) {
     case CHANGE_NAVBAR_MENU:
       return Object.assign({}, state, {
         selectedMenu: action.selectedMenu
+      });
+
+    case CHANGE_STATUS_MESSAGE:
+      return Object.assign({}, state, {
+        statusMessage: action.message
       });
 
     default:

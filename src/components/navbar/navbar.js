@@ -39,9 +39,13 @@ class Navbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            {this.renderMenuLink("AA", "aa", selectedMenuId)}
-            {this.renderMenuLink("BB", "bb", selectedMenuId)}
-            {this.renderMenuLink("CC", "cc", selectedMenuId)}
+            {this.renderMenuLink("New Project", "new", selectedMenuId)}
+            {this.renderMenuLink("Visualize", "visualize", selectedMenuId)}
+            {this.renderMenuLink(
+              "Transformations",
+              "transformations",
+              selectedMenuId
+            )}
           </ul>
         </div>
       </nav>

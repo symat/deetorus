@@ -1,5 +1,5 @@
 import { LOAD_GML_DATA } from "./data-model-actions";
-import { gml_loader_transformator } from "./gml-loader-transformation";
+import gml_loader_transformator from "./gml-loader-transformation";
 
 export const initialDataModel = {
   nodes: [],
