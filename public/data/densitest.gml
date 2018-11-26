@@ -6,97 +6,121 @@ graph
   node
   [
     id 0
-    y 0.586
-    x 0.0712
-    z 0.5
+    graphics [
+      y 0.586
+      x 0.0712
+      z 0.5
+    ]
     label "A"
   ]
   node
   [
     id 1
-    y 0.5207
-    x 0.1488
-    z 0.5
+    graphics [
+      y 0.5207
+      x 0.1488
+      z 0.5
+    ]
     label "B"
   ]
   node
   [
     id 2
-    y 0.5558
-    x 0.3337
-    z 0.5
+    graphics [
+      y 0.5558
+      x 0.3337
+      z 0.5
+    ]
     label "C"
   ]
   node
   [
     id 3
-    y 0.3471
-    x 0.2574
-    z 0.5
+    graphics [
+      y 0.3471
+      x 0.2574
+      z 0.5
+    ] 
     label "D"
   ]
   node
   [
     id 4
-    y 0.3137
-    x 0.4567
-    z 0.5
+    graphics [
+      y 0.3137
+      x 0.4567
+      z 0.5
+    ] 
     label "E"
   ]
   node
   [
     id 5
-    y 0.2978
-    x 0.7089
-    z 0.5
+    graphics [
+      y 0.2978
+      x 0.7089
+      z 0.5
+    ] 
     label "F"
   ]
   node
   [
     id 6
-    y 0.5774
-    x 0.7083
-    z 0.5
+    graphics [
+      y 0.5774
+      x 0.7083
+      z 0.5
+    ] 
     label "G"
   ]
   node
   [
     id 7
-    y 0.5558
-    x 0.9421
-    z 0.5
+    graphics [
+      y 0.5558
+      x 0.9421
+      z 0.5
+    ] 
     label "H"
   ]
   node
   [
     id 8
-    y 0.3631
-    x 0.8396
-    z 0.5
+    graphics [
+      y 0.3631
+      x 0.8396
+      z 0.5
+    ] 
     label "I"
   ]
   node
   [
     id 9
-    y 0.7166
-    x 0.815
-    z 0.5
+    graphics [
+      y 0.7166
+      x 0.815
+      z 0.5
+    ] 
     label "J"
   ]
   node
   [
     id 10
-    y 0.4459
-    x 0.5498
-    z 0.5
+    graphics [
+      y 0.4459
+      x 0.5498
+      z 0.5
+    ] 
     label "K"
   ]
   node
   [
     id 11
-    y 0.6162
-    x 0.5304
-    z 0.5
+    graphics [
+      y 0.6162
+      x 0.5304
+      z 0.5
+    ]
     label "L"
   ]
   edge

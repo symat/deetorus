@@ -16,8 +16,7 @@ fun, for sure :)
 
 But let's make it more generic. It would be great to be able to visualize any kind of static
 or time-series annotated graph data, using diferent transformators to project these data between
-representations like tables, grids or geometric objects. And not to go too far from John Dee,
-let's use some metaphysical data he would be also interested today.
+representations like tables, grids or geometric objects.
 
 # Technologies
 

@@ -2,11 +2,9 @@ import { LOAD_GML_DATA } from "./data-model-actions";
 import gml_loader_transformator from "./gml-loader-transformation";
 
 export const initialDataModel = {
-  nodes: [],
-  links: [],
-  matrix: [],
-  nodeAttributes: {},
-  linkAttributes: {},
+  nodes: [], // list of node objects (mandatory attr: id; optional: label, graphics)
+  links: [], // list of edge objects (mandatory attr: source, target; optional: label, graphics)
+  table: [], // 2D list of objects (mandatory attr: row, col, value; optional: label, graphics)
   globalAttributes: {},
   selectedNode: "",
   transformations: []

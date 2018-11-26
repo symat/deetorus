@@ -20,12 +20,8 @@ class NewProject extends React.Component {
         <h1>Let's create new empty project!</h1>
 
         <p>Load networks:</p>
-        <button onClick={() => this.gmlLoadHandler("data/densitest.gml")}>
-          Load densitest
-        </button>
-        <button onClick={() => this.gmlLoadHandler("data/tree-of-life.gml")}>
-          Load densitest
-        </button>
+        <button onClick={() => this.gmlLoadHandler("data/densitest.gml")}>Load densitest</button>
+        <button onClick={() => this.gmlLoadHandler("data/tree-of-life.gml")}>Load tree of life</button>
       </div>
     );
   }
