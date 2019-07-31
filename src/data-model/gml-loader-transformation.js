@@ -1,5 +1,3 @@
-import { initialDataModel } from "./data-model-reducer";
-
 export default function gml_loader_transformator(currentState, action) {
   // TODO: load the actual GML file from public files
 
@@ -13,8 +11,6 @@ export default function gml_loader_transformator(currentState, action) {
     nodes: gmlDict.graph.node,
     links: gmlDict.graph.edge,
     globalAttributes: globalAttributes,
-    table: initialDataModel.table,
-    selectedNode: initialDataModel.selectedNode,
     transformations: [...currentState.transformations, action]
   });
 }
@@ -40,7 +36,9 @@ const tokenType = {
 
 let patterns = {};
 patterns[tokenType.KEY] = /^[A-Za-z][0-9A-Za-z_]*\b/;
-patterns[tokenType.REAL] = /^[+-]?(?:[0-9]*\.[0-9]+|[0-9]+\.[0-9]*)(?:[Ee][+-]?[0-9]+)?/;
+patterns[
+  tokenType.REAL
+] = /^[+-]?(?:[0-9]*\.[0-9]+|[0-9]+\.[0-9]*)(?:[Ee][+-]?[0-9]+)?/;
 patterns[tokenType.INT] = /^[+-]?[0-9]+/;
 patterns[tokenType.STRING] = /^".*?"/;
 patterns[tokenType.DICT_START] = /^\[/;
@@ -59,7 +57,9 @@ function tokenize(lines) {
     while (remainingString.length > 0) {
       let currentTokenType = next_token_type(remainingString);
       if (currentTokenType) {
-        let currentTokenValue = remainingString.match(patterns[currentTokenType])[0];
+        let currentTokenValue = remainingString.match(
+          patterns[currentTokenType]
+        )[0];
         remainingString = remainingString.substring(currentTokenValue.length);
         if (currentTokenType === tokenType.INT)
           tokens.push({
@@ -82,7 +82,8 @@ function tokenize(lines) {
           currentTokenType === tokenType.KEY
         )
           tokens.push({ type: currentTokenType, value: currentTokenValue });
-      } else throw new Error(`[GML parser] error during tokenize string : ${line}`);
+      } else
+        throw new Error(`[GML parser] error during tokenize string : ${line}`);
     }
   }
   return tokens;
@@ -92,11 +93,18 @@ function parse_dict(tokens, startTokenId) {
   let currentTokenId = startTokenId;
   let currentToken = tokens[currentTokenId];
   let dict = {};
-  while (currentTokenId < tokens.length && currentToken.type === tokenType.KEY) {
+  while (
+    currentTokenId < tokens.length &&
+    currentToken.type === tokenType.KEY
+  ) {
     let key = currentToken.value;
     if (!dict[key]) dict[key] = [];
     currentToken = tokens[++currentTokenId];
-    if ([tokenType.INT, tokenType.REAL, tokenType.STRING].includes(currentToken.type)) {
+    if (
+      [tokenType.INT, tokenType.REAL, tokenType.STRING].includes(
+        currentToken.type
+      )
+    ) {
       dict[key].push(currentToken.value);
     } else if (currentToken.type === tokenType.DICT_START) {
       currentTokenId++;
@@ -104,10 +112,14 @@ function parse_dict(tokens, startTokenId) {
       dict[key].push(resultDict);
       currentTokenId = tokenId;
       if (tokens[currentTokenId].type !== tokenType.DICT_END)
-        throw new Error(`[GML parser] missing DICT_END token! tokenID: ${currentTokenId}`);
+        throw new Error(
+          `[GML parser] missing DICT_END token! tokenID: ${currentTokenId}`
+        );
     } else
       throw new Error(
-        `[GML parser] unexpected token type ${currentToken.type}! tokenID: ${currentTokenId}` + currentTokenId
+        `[GML parser] unexpected token type ${
+          currentToken.type
+        }! tokenID: ${currentTokenId}` + currentTokenId
       );
     currentToken = tokens[++currentTokenId];
   }
@@ -121,6 +133,9 @@ function parse_dict(tokens, startTokenId) {
 function gml_parser(lines) {
   let tokens = tokenize(lines);
   let { resultDict, tokenId } = parse_dict(tokens, 0);
-  if (tokenId !== tokens.length) throw new Error(`[GML parser] did not process all the tokens! tokenId: ${tokenId}`);
+  if (tokenId !== tokens.length)
+    throw new Error(
+      `[GML parser] did not process all the tokens! tokenId: ${tokenId}`
+    );
   return resultDict;
 }
