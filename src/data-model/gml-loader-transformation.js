@@ -1,5 +1,4 @@
 export default function gml_loader_transformator(currentState, action) {
-  // TODO: load the actual GML file from public files
 
   let gmlDict = gml_parser(filter_lines(action.gmlData));
   let globalAttributes = {};

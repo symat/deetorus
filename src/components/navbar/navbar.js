@@ -1,54 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { changeNavbarMenu } from "./navbar-actions";
+import { Menu, Icon } from 'semantic-ui-react'
 
 class Navbar extends React.Component {
-  onMenuClick(menuId) {
-    this.props.dispatch(changeNavbarMenu(menuId));
+  
+  constructor(props) {
+    super(props);
+    this.onMenuClick = this.onMenuClick.bind(this);
   }
 
-  renderMenuLink(name, id, selectedId) {
-    const isActive = id === selectedId ? " active" : "";
-    return (
-      <li className={"nav-item" + isActive}>
-        <a className="nav-link" href="#" onClick={() => this.onMenuClick(id)}>
-          {name}
-        </a>
-      </li>
-    );
+  onMenuClick(e, {name} ) {
+    this.props.dispatch(changeNavbarMenu(name));
   }
 
   render() {
     const selectedMenuId = this.props.selectedMenu;
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">
-          DeeTorus
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon" />
-        </button>
+      <Menu stackable>
+        <Menu.Item onClick={e => this.props.dispatch(changeNavbarMenu("new"))}>
+          <Icon name="gem outline"  color='teal'   size='large' />
+          DeeTorus 
+        </Menu.Item>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            {this.renderMenuLink("New Project", "new", selectedMenuId)}
-            {this.renderMenuLink("Visualize", "visualize", selectedMenuId)}
-            {this.renderMenuLink(
-              "Transformations",
-              "transformations",
-              selectedMenuId
-            )}
-          </ul>
-        </div>
-      </nav>
+        <Menu.Item name='new' active={selectedMenuId === 'new'} onClick={this.onMenuClick}>
+          New Project
+        </Menu.Item>
+
+        <Menu.Item name='visualize' active={selectedMenuId === 'visualize'} onClick={this.onMenuClick}>
+          Visualize
+        </Menu.Item>
+
+        <Menu.Item name='transformations' active={selectedMenuId === 'transformations'} onClick={this.onMenuClick}>
+          Transformations
+        </Menu.Item>
+
+      </Menu>
     );
   }
 }

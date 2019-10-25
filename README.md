@@ -23,9 +23,9 @@ representations like tables, grids or geometric objects.
 - I never used any online IDE before, so why not :) - https://codesandbox.io/s/x2npwk5mlq
 - But let's keep the code version controlled: https://github.com/symat/DeeTorus
 - I always wanted to learn modern front-end frameworks, so let's try React with ES
-- This stuff will need some more advanced state modificaiton for applying projections, Redux
-  seems to manage that just well
-- We will also need some visualization libraries.
+- This stuff will need some more advanced state modificaiton for applying projections, Redux seems to manage that just well
+- Use some existing UI library: https://react.semantic-ui.com/
+- We will also need some visualization libraries for 2/3D .
 
 # Team
 
